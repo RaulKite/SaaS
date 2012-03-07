@@ -28,7 +28,7 @@ end
 module Enumerable
   def method_missing(method_id)
     if method_id.to_s == 'palindrome?'
-      self.to_s.gsub(/\W/,"").downcase == self.to_s.reverse.gsub(/\W/,"").downcase
+      self.reverse_each {|v| p v } ==  self.each { |v| p v }
     else 
       super
     end
@@ -36,14 +36,5 @@ module Enumerable
 end
 
 
-#puts 2.euro.in(:rupees)
 
-#puts "hola aloh".palindrome?
-#
-#puts "A man, a plan, a canal -- Panama".palindrome?
-#
-#puts "Abracadabra".palindrome?
-#
-#
-#puts [1,2,[2,2],3,2,3,2,1].palindrome?
-#
+
